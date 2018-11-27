@@ -1,23 +1,28 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-
+import HelloWorld from './components/HelloWorld.vue'
+import Chat from './components/Chat.vue'
 Vue.use(Router)
-
+import store from "./store"
+function authcheck(to,from,next) {
+  if(store.state.userName && store.state.chatRoom){
+    next();
+  }
+  else next('/')
+}
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'hello-world',
+      component: HelloWorld
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path:'/chat',
+      name:'chat',
+      component:Chat,
+      beforeEnter: authcheck
     }
   ]
 })
