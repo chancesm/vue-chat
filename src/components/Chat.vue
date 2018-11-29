@@ -38,6 +38,9 @@ export default {
     computed: {
         user() {
             return this.$store.state.userName
+        },
+        room() {
+            return this.$store.state.chatRoom
         }
     },
     methods: {
@@ -46,6 +49,7 @@ export default {
             
             this.socket.emit('SEND_MESSAGE', {
                 user: this.user,
+                room: this.room,
                 message: this.message
             });
             this.message = ''
@@ -53,6 +57,10 @@ export default {
     },
     mounted() {
         this.socket = io(`http://localhost:3001?name=${this.user}`)
+        this.socket.on('connect', () => {
+        // emiting to everybody
+            this.socket.emit('join', { room: this.room });
+        })
         this.socket.on('MESSAGE', (data) => {
             this.messages = [...this.messages, data];
             // you can also do this.messages.push(data)
