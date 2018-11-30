@@ -7,7 +7,7 @@
           </div>
           <div class="card-body">
               <div class="messages" v-for="(msg, index) in messages" :key="index">
-                  <p><span class="font-weight-bold">{{ msg.user }}: </span>{{ msg.message }}</p>
+                  <p><span class="font-weight-bold">{{ msg.user }}: </span><span v-html="msg.message"></span></p>
               </div>
           </div>
       </div>

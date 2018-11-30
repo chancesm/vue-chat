@@ -1,0 +1,4 @@
+CHAT_SERVER: New user, Chance, joined testing room! 
+CHAT_SERVER: New user, Suzanne, joined testing room! 
+Chance: Isn't this great?
+Suzanne: It's okay i guess

@@ -1,0 +1,13 @@
+CHAT_SERVER: New user, Sam, joined general room! 
+CHAT_SERVER: New user, Chance, joined general room! 
+CHAT_SERVER: New user, Chance, joined general room! 
+CHAT_SERVER: New user, Sam, joined general room! 
+Chance: this is a test
+CHAT_SERVER: New user, Chance, joined general room! 
+CHAT_SERVER: New user, Sam, joined general room! 
+CHAT_SERVER: New user, Sam, joined general room! 
+CHAT_SERVER: New user, Chance, joined general room! 
+CHAT_SERVER: New user, Sam, joined general room! 
+CHAT_SERVER: New user, Chance, joined general room! 
+CHAT_SERVER: New user, Sam, joined general room! 
+CHAT_SERVER: New user, Chance, joined general room! 
