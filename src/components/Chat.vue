@@ -1,25 +1,21 @@
 <template>
-  <div class="card mt-3">
-      <div class="card-body">
-          <div class="card-title">
+  <div class="w3-container">
+      <div class="w3-conatiner">
+          <div class="w3-container w3-border-bottom">
               <h3>{{user}}'s Chat</h3>
-              <hr>
           </div>
-          <div class="card-body">
+          <div class="w3-container">
               <div class="messages" v-for="(msg, index) in messages" :key="index">
                   <p><span class="font-weight-bold">{{ msg.user }}: </span><span v-html="msg.message"></span></p>
               </div>
           </div>
       </div>
-      <div class="card-footer">
-          <form @submit.prevent="sendMessage">
-              
-              <div class="gorm-group pb-3">
-                  <label for="message">Message:</label>
-                  <input type="text" v-model="message" class="form-control">
-              </div>
-              <button type="submit" class="btn btn-success">Send</button>
-          </form>
+      <div class="w3-container">
+        <form class=w3-form @submit.prevent="sendMessage">              
+            <label class="w3-text-blue">Message</label>
+            <input class="w3-input w3-border" type="text" v-model="message">
+            <button class="w3-button w3-section w3-teal w3-ripple" type="submit">Send</button>
+        </form>
       </div>
   </div>
 </template>
@@ -56,7 +52,7 @@ export default {
         }
     },
     mounted() {
-        this.socket = io(`http://localhost:3001?name=${this.user}`)
+        this.socket = io(`http://localhost:3001?name=${this.user}&room=${this.room}`)
         this.socket.on('connect', () => {
         // emiting to everybody
             this.socket.emit('join', { room: this.room });

@@ -40,6 +40,12 @@ io.on('connection', function(socket) {
         }) 
         io.in(data.room).emit('MESSAGE', {message:`New user, ${socket.handshake.query.name}, joined ${data.room} room!`,user: 'CHAT_SERVER' })
     });
+    socket.on('disconnect', (reason) => {
+        fs.appendFile(`${__dirname}/../history/${socket.handshake.query.room}.txt`,`CHAT_SERVER: ${socket.handshake.query.name} left the chatroom!\n`, err => {
+            if (err) throw err
+        }) 
+        io.in(socket.handshake.query.room).emit('MESSAGE', {message:`${socket.handshake.query.name} left the chatroom!`,user: 'CHAT_SERVER' })
+    })
     socket.on('SEND_MESSAGE', function(data) {
         const {room, user, message} = data
         if (message == "/history") {

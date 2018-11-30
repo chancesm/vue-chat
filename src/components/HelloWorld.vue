@@ -9,6 +9,11 @@
         <p><button class="w3-button w3-section w3-teal w3-ripple"> Enter Chat </button></p>
       </form>
     </div>
+    <div class="w3-container w3-half w3-margin-top">
+      
+        <img class="w3-image" src="img.png" alt="MainImage" style="">
+    
+    </div>
   </div>
 </template>
 
